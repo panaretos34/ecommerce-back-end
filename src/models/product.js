@@ -12,10 +12,32 @@ const productSchema=new mongoose.Schema({
   required:true,
   unique:true
     },
-parentId:{
-    type:String
+  price:{
+    type:Number,
+    required:true 
+
+},
+description :{
+    type:String,
+    required:true
+},
+offer:{type:Number},
+productPictures:[
+    {img:{type:String}}
+],
+reviews:[
+    {
+    userId:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+    review:String
 }
-},{timestamps:true});
+
+],
+
+
+category:{type:mongoose.Schema.Types.ObjectId,ref:'Category'},
+createdBy:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+UpdatedAt:Date,
+}, {timestamps:true});
 
 
 module.exports=mongoose.model('Product',productSchema);
