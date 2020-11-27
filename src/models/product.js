@@ -17,6 +17,11 @@ const productSchema=new mongoose.Schema({
     required:true 
 
 },
+
+quantity:{
+type:Number,
+required:true
+},
 description :{
     type:String,
     required:true
@@ -34,8 +39,8 @@ reviews:[
 ],
 
 
-category:{type:mongoose.Schema.Types.ObjectId,ref:'Category'},
-createdBy:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+category:{type:mongoose.Schema.Types.ObjectId,ref:'Category',required:true},
+createdBy:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},
 UpdatedAt:Date,
 }, {timestamps:true});
 
